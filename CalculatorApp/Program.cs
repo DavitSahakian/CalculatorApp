@@ -92,6 +92,15 @@ namespace CalculatorApp
         }
         public int Subtract(int first, int second)
         {
+           
+            if (first<second)
+            {
+
+                int temp = first;
+                first = second;
+                second = temp;
+
+            }
             return first - second;
         }
         public int Multipy(int first, int second)
@@ -123,17 +132,14 @@ namespace CalculatorApp
                   return  Add(first, second);
 
                 case "-":
-                    Subtract(first, second);
-                    break;
+                    return Subtract(first, second);                  
 
                 case "*":
-                    Multipy(first, second);
-                    break;
+                    return Multipy(first, second);
 
                 case "/":
-                    Divide(first, second);
-                    break;
-            }
+                    return Divide(first, second);
+             }
             throw new Exception("You did not selected any correct operation");
         }
     }
